@@ -28,7 +28,7 @@ public class Main {
 
 			File ff = new File("DriverSheet.ods");
 			String path = ff.getAbsolutePath();
-			System.out.println(path);
+			
 			// String Path = "DriverSheet.ods";
 			Sheet sheet = SpreadSheet.createFromFile(new File(path))
 					.getSheet(0);
@@ -92,6 +92,7 @@ public class Main {
 				if (driverExecute.equals("YES")) {
 					Selecting_Device f = new Selecting_Device();
 					driver = f.selectdevice(DriverToInvoke);
+					
 
 					WebDriverWait wait = new WebDriverWait(driver, 40);
 					File testCaseFile = new File(functionality);
@@ -99,7 +100,7 @@ public class Main {
 
 					Sheet functionalitysheet = SpreadSheet.createFromFile(
 							new File(functionality)).getSheet(Sheetname);
-
+					
 					int TestCaseRowCount = functionalitysheet.getRowCount();
 
 					for (int j = 1; j < TestCaseRowCount; j++) {
@@ -126,9 +127,11 @@ public class Main {
 						action = actionValue.getTextValue();
 						ObjectIdentifier = objectIdentifierValue.getTextValue();
 						testData = testDataValue.getTextValue();
-
+						
 						if (testCaseExecute.equals("YES")) {
+							
 							if (ObjectIdentifier.length() != 0) {
+								
 								FindElement findelement = new FindElement();
 
 								webelement = findelement.find_Element(
@@ -146,11 +149,13 @@ public class Main {
                              } 
 							else if (action.equals("OldValueCapture")) {
 								OldValueCapture o = new OldValueCapture();
+								
 								oldValue = o.oldValueCapture(webelement,
 										driver, wait);
 							} 
 							else 
 							{
+								
 								String Classname = "framework.";
 								Class newclass = Class.forName(Classname
 										.concat(action));
@@ -180,7 +185,7 @@ public class Main {
                                 
 								ConvertingToSmallLetter newValue = new ConvertingToSmallLetter();
 								action = newValue.convertingToSmallLetter(action);
-								System.out.println(action);
+								
 								Method method = newclass.getMethod(action, par);
                                 method.invoke(object, viewPort, functionality,driverExecute, testCaseno,testCaseDescription, testCaseExecute,webelement, testData, action, driver,wait, oldValue, j, report, application);
 							    

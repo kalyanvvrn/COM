@@ -17,16 +17,21 @@ public class FindElement {
 			String ObjectIdentifier, WebDriver driver, WebDriverWait wait,
 			String viewPort, String testCaseno, String testCaseDescription,
 			String application) throws IOException {
+		
 		String Status = null;
 		WebElement webelement = null;
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		
+        //driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         if (!viewPort.contains("Appium")) {
+        	System.out.println(ObjectIdentifierType);
 			String Windowid = driver.getWindowHandle();
 			driver.switchTo().window(Windowid);
+			
 		}
-		// System.out.println();
+		 
 		if (ObjectIdentifierType.toUpperCase().equals("XPATH")) {
 			try {
+				
 				webelement = driver.findElement(By.xpath(ObjectIdentifier));
 			} catch (Exception e) {
 

@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class TextBox { 
-	public void text_Box(String viewPort, String functionality,
+	public void textBox(String viewPort, String functionality,
 			String driverExecute, String testCaseno,
 			String testCaseDescription, String testCaseExecute,
 			WebElement webelement, String testData, String action,
@@ -23,7 +23,7 @@ public class TextBox {
 
 			Thread.sleep(1000);
 
-			webelement.click();
+			//webelement.click();
 
 			webelement.sendKeys(testData);
 
