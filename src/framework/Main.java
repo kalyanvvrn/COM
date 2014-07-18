@@ -21,6 +21,7 @@ public class Main {
 			InvocationTargetException {
 
 		try {
+			
 
 			WebElement webelement = null;
 			int counter = 0;

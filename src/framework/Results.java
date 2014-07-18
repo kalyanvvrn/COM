@@ -13,7 +13,7 @@ public class Results {
 		String output = null;
 		FileWriter fw = null;
 		BufferedWriter bw = null;
-		String filevalue = "/Users/kalyan_v/Desktop/FRAMEWORK/";
+		String filevalue = "/Users/venkatarama_n/Documents/JAVA_PROJECTS/COM/";
 		String Files = filevalue.concat(viewPort).concat(application)
 				.concat(".html");
 		String align = "center";
