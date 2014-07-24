@@ -13,9 +13,9 @@ public class Link {
 			String driverExecute, String testCaseno,
 			String testCaseDescription, String testCaseExecute,
 			WebElement webelement, String testData, String action,
-			WebDriver driver, WebDriverWait wait, String oldValue, int j,String report,String application)
+			WebDriver driver, WebDriverWait wait, String oldValue, int j,String report,String application,String startTm,String endTm)
 			throws InterruptedException, IOException {
-String Status=null;
+        String Status=null;
 		try {
 
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -31,7 +31,7 @@ String Status=null;
 			{
 			Status="Pass";
 			Results r=new Results();
-			r.results(testCaseno, testCaseDescription, Status,viewPort,application);
+			r.results(testCaseno, testCaseDescription, Status,viewPort,application, startTm,endTm);
 			}
 			
 		} catch (Exception e) {
@@ -41,7 +41,7 @@ String Status=null;
 			if (report.toUpperCase().equals("TESTSTEP")) {
 				Status = "Pass";
 				Results r = new Results();
-				r.results(testCaseno, testCaseDescription, Status,viewPort,application);
+				r.results(testCaseno, testCaseDescription, Status,viewPort,application, startTm,endTm);
 			}
 			
 		}

@@ -14,9 +14,10 @@ public class UiTest {
 	public void uiTest(String functionality, WebElement webelement,
 			WebDriver driver, WebDriverWait wait, String ObjectSheetName,
 			String testCaseno, String testCaseDescription, int j,
-			String report, String viewPort, String application) {
+			String report, String viewPort, String application,String startTm) {
 
 		String Status = null;
+		String endTm=null;
 
 		try {
 
@@ -74,13 +75,18 @@ public class UiTest {
 					String DesktopWidth = DesktopWidthValue.getTextValue();
 					String DesktopHeight = DesktopHeightValue.getTextValue();
 
+					
+					EndTime et=new EndTime();
+					 endTm=et.endTime();
+					
+					
 					if (webelement.isDisplayed()) {
 						System.out.println("Object " + ObjName
 								+ " does Exist on the screen");
 						Status = "Pass";
 						Results r = new Results();
 						r.results(testCaseno, testCaseDescription, Status,
-								viewPort, application);
+								viewPort, application, startTm,endTm);
 
 					} else {
 						System.out.println("Object " + ObjName
@@ -88,7 +94,7 @@ public class UiTest {
 						Status = "Fail";
 						Results r = new Results();
 						r.results(testCaseno, testCaseDescription, Status,
-								viewPort, application);
+								viewPort, application, startTm,endTm);
 					}
 
 				} else if (DesktopApplicability.equals("NO")) {

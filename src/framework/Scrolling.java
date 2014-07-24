@@ -13,7 +13,7 @@ public class Scrolling {
 			String testCaseDescription, String testCaseExecute,
 			WebElement webelement, String testData, String action,
 			WebDriver driver, WebDriverWait wait, String oldValue, int j,
-			String report, String application) throws InterruptedException,
+			String report, String application,String startTm) throws InterruptedException,
 			IOException {
 
 		JavascriptExecutor jsx = (JavascriptExecutor) driver;

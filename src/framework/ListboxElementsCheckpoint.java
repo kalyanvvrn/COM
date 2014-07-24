@@ -14,7 +14,7 @@ public class ListboxElementsCheckpoint {
 			String testCaseDescription, String testCaseExecute,
 			WebElement webelement, String testData, String action,
 			WebDriver driver, WebDriverWait wait, String oldValue, int j,
-			String report, String application) throws IOException {
+			String report, String application,String startTm,String endTm) throws IOException {
 
 		String Status = null;
 		try {
@@ -47,7 +47,7 @@ public class ListboxElementsCheckpoint {
 					Status = "Pass";
 					Results r = new Results();
 					r.results(testCaseno, testCaseDescription, Status,
-							viewPort, application);
+							viewPort, application, startTm,endTm);
 				}
 
 			} else {
@@ -57,7 +57,7 @@ public class ListboxElementsCheckpoint {
 					Status = "Fail";
 					Results r = new Results();
 					r.results(testCaseno, testCaseDescription, Status,
-							viewPort, application);
+							viewPort, application, startTm,endTm);
 				}
 			}
 		} catch (Exception e) {
@@ -65,7 +65,7 @@ public class ListboxElementsCheckpoint {
 				Status = "Fail";
 				Results r = new Results();
 				r.results(testCaseno, testCaseDescription, Status, viewPort,
-						application);
+						application, startTm,endTm);
 			}
 		}
 	}

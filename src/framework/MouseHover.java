@@ -13,7 +13,7 @@ public class MouseHover {
 			String testCaseDescription, String testCaseExecute,
 			WebElement webelement, String testData, String action,
 			WebDriver driver, WebDriverWait wait, String oldValue, int j,
-			String report, String application) throws IOException {
+			String report, String application,String startTm,String endTm) throws IOException {
 
 		String Status = null;
 		try {
@@ -28,14 +28,14 @@ public class MouseHover {
 				Status = "Pass";
 				Results r = new Results();
 				r.results(testCaseno, testCaseDescription, Status, viewPort,
-						application);
+						application, startTm,endTm);
 			}
 		} catch (Exception e) {
 			if (report.toUpperCase().equals("TESTSTEP")) {
 				Status = "Fail";
 				Results r = new Results();
 				r.results(testCaseno, testCaseDescription, Status, viewPort,
-						application);
+						application, startTm,endTm);
 			}
 		}
 	}

@@ -16,24 +16,29 @@ public class FindElement {
 	public WebElement find_Element(String ObjectIdentifierType,
 			String ObjectIdentifier, WebDriver driver, WebDriverWait wait,
 			String viewPort, String testCaseno, String testCaseDescription,
-			String application) throws IOException {
+			String application,String startTm,String endTm) throws IOException {
+		
 		String Status = null;
 		WebElement webelement = null;
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		
+        //driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         if (!viewPort.contains("Appium")) {
+        	System.out.println(ObjectIdentifierType);
 			String Windowid = driver.getWindowHandle();
 			driver.switchTo().window(Windowid);
+			
 		}
-		// System.out.println();
+		 
 		if (ObjectIdentifierType.toUpperCase().equals("XPATH")) {
 			try {
+				
 				webelement = driver.findElement(By.xpath(ObjectIdentifier));
 			} catch (Exception e) {
 
 				Status = "Fail";
 				Results r = new Results();
 				r.results(testCaseno, testCaseDescription, Status, viewPort,
-						application);
+						application, startTm,endTm);
 			}
 		} else if (ObjectIdentifierType.toUpperCase().equals("CSS")) {
 			try {
@@ -51,7 +56,7 @@ public class FindElement {
 				Status = "Fail";
 				Results r = new Results();
 				r.results(testCaseno, testCaseDescription, Status, viewPort,
-						application);
+						application, startTm,endTm);
 			}
 		} else if (ObjectIdentifierType.toUpperCase().equals("ID")) {
 			try {
@@ -60,7 +65,7 @@ public class FindElement {
 				Status = "Fail";
 				Results r = new Results();
 				r.results(testCaseno, testCaseDescription, Status, viewPort,
-						application);
+						application, startTm,endTm);
 			}
 		} else if (ObjectIdentifierType.toUpperCase().equals("TAG")) {
 			try {
@@ -69,7 +74,7 @@ public class FindElement {
 				Status = "Fail";
 				Results r = new Results();
 				r.results(testCaseno, testCaseDescription, Status, viewPort,
-						application);
+						application, startTm,endTm);
 			}
 		} else if (ObjectIdentifier.toUpperCase().equals("Class")) {
 			try {
@@ -78,7 +83,7 @@ public class FindElement {
 				Status = "Fail";
 				Results r = new Results();
 				r.results(testCaseno, testCaseDescription, Status, viewPort,
-						application);
+						application, startTm,endTm);
 			}
 		}
 

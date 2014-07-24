@@ -8,23 +8,29 @@ import java.io.IOException;
 public class Results {
 	@SuppressWarnings("unused")
 	public void results(String testCaseno, String testCaseDescription,
-			String Status, String viewPort, String application)
+			String Status, String viewPort, String application,String startTm,String endTm)
 			throws IOException {
+		System.out.println("Came to results");
 		String output = null;
 		FileWriter fw = null;
 		BufferedWriter bw = null;
-		String filevalue = "/Users/kalyan_v/Desktop/FRAMEWORK/";
-		String Files = filevalue.concat(viewPort).concat(application)
+		File ff = new File("DriverSheet.ods");
+		String path=ff.getAbsolutePath();
+		String newPath=path.substring(0,path.lastIndexOf("/")).concat("/");
+		System.out.println(newPath);
+		String Files = newPath.concat(viewPort).concat(application)
 				.concat(".html");
 		String align = "center";
-		File tickMark=new File("tickmark.png");
-		String tick=tickMark.getAbsolutePath();
-		File xmark=new File("x mark");
-	    String cross=xmark.getAbsolutePath();
+		//File tickMark=new File("tickmark.png");
+		//String tick=tickMark.getAbsolutePath();
+		//File xmark=new File("x mark");
+	   // String cross=xmark.getAbsolutePath();
 		String color = "lightgreen";
 		String headercolor = "grey";
+		
+		
 		File f = new File(Files);
-		fw = new FileWriter(Files, true);
+		fw = new FileWriter(f, true);
 		bw = new BufferedWriter(fw);
 		System.out.println(Status);
 		bw.write("<table border=1 style=width:1000px>");

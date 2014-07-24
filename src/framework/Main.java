@@ -19,7 +19,8 @@ public class Main {
 			InstantiationException, IllegalAccessException, SecurityException,
 			NoSuchMethodException, IllegalArgumentException,
 			InvocationTargetException {
-
+String startTm=null;
+String endTm=null;
 		try {
 
 			WebElement webelement = null;
@@ -28,7 +29,7 @@ public class Main {
 
 			File ff = new File("DriverSheet.ods");
 			String path = ff.getAbsolutePath();
-			System.out.println(path);
+			
 			// String Path = "DriverSheet.ods";
 			Sheet sheet = SpreadSheet.createFromFile(new File(path))
 					.getSheet(0);
@@ -92,6 +93,7 @@ public class Main {
 				if (driverExecute.equals("YES")) {
 					Selecting_Device f = new Selecting_Device();
 					driver = f.selectdevice(DriverToInvoke);
+					
 
 					WebDriverWait wait = new WebDriverWait(driver, 40);
 					File testCaseFile = new File(functionality);
@@ -99,7 +101,7 @@ public class Main {
 
 					Sheet functionalitysheet = SpreadSheet.createFromFile(
 							new File(functionality)).getSheet(Sheetname);
-
+					
 					int TestCaseRowCount = functionalitysheet.getRowCount();
 
 					for (int j = 1; j < TestCaseRowCount; j++) {
@@ -126,15 +128,17 @@ public class Main {
 						action = actionValue.getTextValue();
 						ObjectIdentifier = objectIdentifierValue.getTextValue();
 						testData = testDataValue.getTextValue();
-
+						
 						if (testCaseExecute.equals("YES")) {
+							
 							if (ObjectIdentifier.length() != 0) {
+								
 								FindElement findelement = new FindElement();
 
 								webelement = findelement.find_Element(
 										ObjectIdentifierType, ObjectIdentifier,
 										driver, wait, viewPort, testCaseno,
-										testCaseDescription, application);
+										testCaseDescription, application, startTm,endTm);
 							}
 							if (action.equals("UiTest"))
 							{
@@ -142,20 +146,22 @@ public class Main {
 								ui.uiTest(functionality, webelement, driver,
 										wait, ObjectSheetName, testCaseno,
 										testCaseDescription, j, report,
-										viewPort, application);
+										viewPort, application, startTm);
                              } 
 							else if (action.equals("OldValueCapture")) {
 								OldValueCapture o = new OldValueCapture();
+								
 								oldValue = o.oldValueCapture(webelement,
-										driver, wait);
+										driver, wait, startTm);
 							} 
 							else 
 							{
+								
 								String Classname = "framework.";
 								Class newclass = Class.forName(Classname
 										.concat(action));
 								Object object = newclass.newInstance();
-								Class[] par = new Class[15];
+								Class[] par = new Class[17];
 								// This is to mention all the parameter types using the array par
 
 								par[0]  = String.class;
@@ -173,6 +179,8 @@ public class Main {
 								par[12] = Integer.TYPE;
 								par[13] = String.class;
 								par[14] = String.class;
+								par[15] = String.class;
+								par[16] = String.class;
                                 
 								// This is to convert the first character to
 								// the small letter to
@@ -180,9 +188,9 @@ public class Main {
                                 
 								ConvertingToSmallLetter newValue = new ConvertingToSmallLetter();
 								action = newValue.convertingToSmallLetter(action);
-								System.out.println(action);
+								
 								Method method = newclass.getMethod(action, par);
-                                method.invoke(object, viewPort, functionality,driverExecute, testCaseno,testCaseDescription, testCaseExecute,webelement, testData, action, driver,wait, oldValue, j, report, application);
+                                method.invoke(object, viewPort, functionality,driverExecute, testCaseno,testCaseDescription, testCaseExecute,webelement, testData, action, driver,wait, oldValue, j, report, application,startTm,endTm);
 							    
 							}
 						}
