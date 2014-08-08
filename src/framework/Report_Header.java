@@ -13,12 +13,21 @@ public class Report_Header {
 		String ipaddress = Inet4Address.getLocalHost().getHostAddress();
 		String osname = System.getProperty("os.name");
 		FileWriter fw = null;
+		String newPath=null;
 		BufferedWriter bw = null;
 
 		System.out.println("Came to report header");
 		File ff=new File("DriverSheet.ods");
 		String path=ff.getAbsolutePath();
-		String newPath=path.substring(0,path.lastIndexOf("/")).concat("/");
+		if(osname.toUpperCase().contains("MAC"))
+		{
+			 newPath=path.substring(0,path.lastIndexOf("/")).concat("/");
+			System.out.println(newPath);
+		}
+		else
+		{
+		 newPath=path.substring(0,path.lastIndexOf("\\")).concat("\\");
+		}
 		//String Filevalue = "/Users/kalyan_v/Desktop/FRAMEWORK/";
 		String Files = newPath.concat(viewPort).concat(application)
 				.concat(".html");

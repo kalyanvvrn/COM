@@ -2,6 +2,10 @@ package framework;
 
 import java.io.IOException;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -20,8 +24,11 @@ public class Refresh {
 				String Windowid = driver.getWindowHandle();
 				driver.switchTo().window(Windowid);
 			}
+			
+			
 
 			webelement.sendKeys(Keys.F5);
+			//driver.navigate().refresh();
 		} catch (Exception e) {
 			if (report.toUpperCase().equals("TESTSTEP")) {
 				Status = "Pass";

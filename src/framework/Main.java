@@ -133,15 +133,13 @@ String endTm=null;
 							
 							if (ObjectIdentifier.length() != 0) {
 								
-								FindElement findelement = new FindElement();
+								webelement=FindElement.find_Element(ObjectIdentifierType, ObjectIdentifier, driver, wait, viewPort, testCaseno, testCaseDescription, application, startTm, endTm);
 
-								webelement = findelement.find_Element(
-										ObjectIdentifierType, ObjectIdentifier,
-										driver, wait, viewPort, testCaseno,
-										testCaseDescription, application, startTm,endTm);
 							}
 							if (action.equals("UiTest"))
 							{
+								
+								//UiTest.uiTest(functionality, webelement, driver, wait, ObjectSheetName, testCaseno, testCaseDescription, j, report, viewPort, application, startTm);
 								UiTest ui = new UiTest();
 								ui.uiTest(functionality, webelement, driver,
 										wait, ObjectSheetName, testCaseno,
@@ -185,11 +183,10 @@ String endTm=null;
 								// This is to convert the first character to
 								// the small letter to
 								// follow the naming conventions
-                                
-								ConvertingToSmallLetter newValue = new ConvertingToSmallLetter();
-								action = newValue.convertingToSmallLetter(action);
+                                action = ConvertingToSmallLetter.convertingToSmallLetter(action);
 								
 								Method method = newclass.getMethod(action, par);
+							
                                 method.invoke(object, viewPort, functionality,driverExecute, testCaseno,testCaseDescription, testCaseExecute,webelement, testData, action, driver,wait, oldValue, j, report, application,startTm,endTm);
 							    
 							}

@@ -15,17 +15,19 @@ public class TextCheckpoint {
 			String report, String application,String startTm,String endTm) throws IOException {
 		String Status = null;
 		try {
-
+System.out.println("came");
 			if (!viewPort.contains("Appium")) {
-				String Windowid = driver.getWindowHandle();
-				driver.switchTo().window(Windowid);
+				//String Windowid = driver.getWindowHandle();
+				//driver.switchTo().window(Windowid);
 			}
 
 			// ((JavascriptExecutor)
-			// driver).executeScript("arguments[0].scrollIntoView(true);",
+			// driver).executeScript("arguments[0].scrollIntoView    (true);",
 			// Text);
 			Thread.sleep(500);
 			// System.out.println(Text.getText());
+			System.out.println("Came to text checkpoint");
+			System.out.println(webelement.getText());
 			if (webelement.getText().equals(testData)) {
 				System.out.println("Object with the text:"
 						+ webelement.getText() + " is displaying correctly");

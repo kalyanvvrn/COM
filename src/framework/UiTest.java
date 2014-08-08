@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class UiTest {
 	@SuppressWarnings({ "rawtypes", "unused" })
-	public void uiTest(String functionality, WebElement webelement,
+	public  void uiTest(String functionality, WebElement webelement,
 			WebDriver driver, WebDriverWait wait, String ObjectSheetName,
 			String testCaseno, String testCaseDescription, int j,
 			String report, String viewPort, String application,String startTm) {

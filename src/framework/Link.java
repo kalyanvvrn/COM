@@ -19,16 +19,18 @@ public class Link {
 		try {
 
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			Thread.sleep(6000);
+			//Thread.sleep(6000);
 			if(!viewPort.contains("Appium"))
 			{
 				String Windowid = driver.getWindowHandle();
 				driver.switchTo().window(Windowid);
 			}
-		 
+		 System.out.println("Came to link");
 			webelement.click();
+			System.out.println("Came to link1");
 			if(report.toUpperCase().equals("TESTSTEP"))
 			{
+				
 			Status="Pass";
 			Results r=new Results();
 			r.results(testCaseno, testCaseDescription, Status,viewPort,application, startTm,endTm);
@@ -39,7 +41,7 @@ public class Link {
 			
 			
 			if (report.toUpperCase().equals("TESTSTEP")) {
-				Status = "Pass";
+				Status = "Fail";
 				Results r = new Results();
 				r.results(testCaseno, testCaseDescription, Status,viewPort,application, startTm,endTm);
 			}

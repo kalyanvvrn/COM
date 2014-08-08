@@ -1,7 +1,7 @@
 package framework;
 
 public class ConvertingToSmallLetter {
-	public String convertingToSmallLetter(String action) {
+	public static String convertingToSmallLetter(String action) {
 		Character firstLetter = action.charAt(0);
 		char[] chararray = action.toCharArray();
 		chararray[0] = Character.toLowerCase(firstLetter);

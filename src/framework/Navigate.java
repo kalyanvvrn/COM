@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Navigate {
-	public void navigate(String viewPort, String functionality,
+	public  void navigate(String viewPort, String functionality,
 			String driverExecute, String testCaseno,
 			String testCaseDescription, String testCaseExecute,
 			WebElement webelement, String testData, String action,

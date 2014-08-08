@@ -11,12 +11,18 @@ public class Results {
 			String Status, String viewPort, String application,String startTm,String endTm)
 			throws IOException {
 		System.out.println("Came to results");
+		String osname = System.getProperty("os.name");
 		String output = null;
 		FileWriter fw = null;
 		BufferedWriter bw = null;
 		File ff = new File("DriverSheet.ods");
 		String path=ff.getAbsolutePath();
-		String newPath=path.substring(0,path.lastIndexOf("/")).concat("/");
+		//String newPath=path.substring(0,path.lastIndexOf("/")).concat("/");
+		if(osname.toUpperCase().contains("MAC"))
+		{
+			String newPath=path.substring(0,path.lastIndexOf("/")).concat("/");
+		}
+		String newPath=path.substring(0,path.lastIndexOf("\\")).concat("\\");
 		System.out.println(newPath);
 		String Files = newPath.concat(viewPort).concat(application)
 				.concat(".html");
