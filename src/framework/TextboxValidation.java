@@ -27,7 +27,6 @@ public void textboxWithAlphabetsSpecialCharachters(String viewPort, String funct
 			{
 				String s= Character.toString(Value.charAt(i));
 				webelement.sendKeys(s);
-				
 			}
 			
 			String getValue=webelement.getCssValue("value");
@@ -40,11 +39,7 @@ public void textboxWithAlphabetsSpecialCharachters(String viewPort, String funct
 			{
 				System.out.println("Not able to enter alphabets in to the text box field");
 			}
-			
-			
 		}
-		
-		
 		if(testData.toUpperCase().equals("SPECIALS"))
 		{
 			
@@ -53,11 +48,8 @@ public void textboxWithAlphabetsSpecialCharachters(String viewPort, String funct
 			{
 				String s= Character.toString(Value.charAt(i));
 				webelement.sendKeys(s);
-				
 			}
-			
 			String getValue=webelement.getCssValue("value");
-			
 			if(getValue.equals(Value))
 			{
 				System.out.println("Able to enter Special characters in to the text box field");
@@ -66,16 +58,9 @@ public void textboxWithAlphabetsSpecialCharachters(String viewPort, String funct
 			{
 				System.out.println("Not able to enter Special characters in to the text box field");
 			}
-			
-			
-			
 		}
-		
-		
-		
 		if(testData.toUpperCase().equals("SPACE"))
 		{
-			
 			String Value="   ";
 			for(int i=0;i<Value.length();i++)
 			{
@@ -83,9 +68,7 @@ public void textboxWithAlphabetsSpecialCharachters(String viewPort, String funct
 				webelement.sendKeys(s);
 				
 			}
-			
 			String getValue=webelement.getCssValue("value");
-			
 			if(getValue.equals(Value))
 			{
 				System.out.println("Able to enter Spaces in to the text box field");
@@ -94,21 +77,13 @@ public void textboxWithAlphabetsSpecialCharachters(String viewPort, String funct
 			{
 				System.out.println("Not able to enter spaces in to the text box field");
 			}
-			
-			
-			
 		}
 		
-		
-		
 	}
-		
-	   
 	catch(Exception e)
 	{
 		System.out.println(e.getMessage());
 	}
-		
 		
 }
 }

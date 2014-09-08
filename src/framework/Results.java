@@ -13,6 +13,7 @@ public class Results {
 		System.out.println("Came to results");
 		String osname = System.getProperty("os.name");
 		String output = null;
+		String newPath=null;
 		FileWriter fw = null;
 		BufferedWriter bw = null;
 		File ff = new File("DriverSheet.ods");
@@ -20,9 +21,13 @@ public class Results {
 		//String newPath=path.substring(0,path.lastIndexOf("/")).concat("/");
 		if(osname.toUpperCase().contains("MAC"))
 		{
-			String newPath=path.substring(0,path.lastIndexOf("/")).concat("/");
+			 newPath=path.substring(0,path.lastIndexOf("/")).concat("/");
+			System.out.println("came to reports making");
 		}
-		String newPath=path.substring(0,path.lastIndexOf("\\")).concat("\\");
+		else
+		{
+		 newPath=path.substring(0,path.lastIndexOf("\\")).concat("\\");
+		}
 		System.out.println(newPath);
 		String Files = newPath.concat(viewPort).concat(application)
 				.concat(".html");

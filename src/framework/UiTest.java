@@ -20,6 +20,7 @@ public class UiTest {
 		String endTm=null;
 
 		try {
+			System.out.println("came to ui test");
 
 			String Windowid = driver.getWindowHandle();
 			driver.switchTo().window(Windowid);

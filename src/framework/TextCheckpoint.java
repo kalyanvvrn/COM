@@ -37,8 +37,23 @@ System.out.println("came");
 					r.results(testCaseno, testCaseDescription, Status,
 							viewPort, application, startTm,endTm);
 				}
+				else
+				{
+					
+					Status = "Pass";
+					Results r = new Results();
+					r.results(testCaseno, testCaseDescription, Status,
+							viewPort, application, startTm,endTm);
+				}
 			} else {
 				if (report.toUpperCase().equals("TESTSTEP")) {
+					Status = "Fail";
+					Results r = new Results();
+					r.results(testCaseno, testCaseDescription, Status,
+							viewPort, application, startTm,endTm);
+				}
+				else
+				{
 					Status = "Fail";
 					Results r = new Results();
 					r.results(testCaseno, testCaseDescription, Status,

@@ -27,19 +27,20 @@ public class FindElement {
 		
         //driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         if (!viewPort.contains("Appium")) {
-        	System.out.println(ObjectIdentifierType);
+        	
 			String Windowid = driver.getWindowHandle();
 			driver.switchTo().window(Windowid);
+			System.out.println(ObjectIdentifierType);
 			
 		}
         System.out.println("Came to find element");
 		 
 		if (ObjectIdentifierType.toUpperCase().equals("XPATH")) {
 			try {
-				
+				System.out.println("abcd");
 				webelement = driver.findElement(By.xpath(ObjectIdentifier));
 			} catch (Exception e) {
-
+				System.out.println("abcd111111");
 				Status = "Fail";
 				Results r = new Results();
 				r.results(testCaseno, testCaseDescription, Status, viewPort,

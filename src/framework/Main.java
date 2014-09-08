@@ -19,11 +19,10 @@ public class Main {
 			InstantiationException, IllegalAccessException, SecurityException,
 			NoSuchMethodException, IllegalArgumentException,
 			InvocationTargetException {
-String startTm=null;
-String endTm=null;
-		try {
-
-			WebElement webelement = null;
+           String startTm=null;
+           String endTm=null;
+		 try {
+            WebElement webelement = null;
 			int counter = 0;
 			String oldValue = null;
 
